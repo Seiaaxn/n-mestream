@@ -1,0 +1,564 @@
+/* ===== TABLET (768px) ===== */
+@media (max-width: 768px) {
+  .nav-container {
+    gap: 12px;
+  }
+
+  .nav-search-wrap {
+    max-width: 250px;
+  }
+
+  .detail-header {
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+  }
+
+  .detail-poster {
+    width: 100%;
+  }
+
+  .explore-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+  }
+
+  .anime-scroll {
+    gap: 10px;
+    margin: 0 -20px;
+    padding: 0 20px 8px;
+  }
+
+  .anime-card {
+    width: 120px;
+  }
+
+  .hero {
+    height: 280px;
+    margin: 16px;
+  }
+
+  .section {
+    padding: 0 16px 24px;
+  }
+
+  .detail-section {
+    padding: 20px;
+  }
+
+  .modal-content {
+    max-width: 90%;
+  }
+
+  .genre-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
+
+/* ===== MOBILE (480px) ===== */
+@media (max-width: 480px) {
+  :root {
+    --nav-h: 56px;
+  }
+
+  .navbar {
+    height: 56px;
+    padding: 0 16px;
+  }
+
+  .nav-container {
+    gap: 8px;
+  }
+
+  .nav-logo-text {
+    font-size: 18px;
+  }
+
+  .nav-search-wrap {
+    display: none !important;
+  }
+
+  .nav-search-wrap.active {
+    display: flex !important;
+    position: absolute;
+    top: 64px;
+    left: 16px;
+    right: 16px;
+    max-width: none;
+    z-index: 100;
+  }
+
+  .nav-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav-avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .main-content {
+    margin-top: 56px;
+    margin-bottom: 80px;
+  }
+
+  .hero {
+    height: 240px;
+    margin: 12px;
+    border-radius: 16px;
+  }
+
+  .hero-title {
+    font-size: 18px;
+  }
+
+  .hero-info {
+    font-size: 12px;
+  }
+
+  .section {
+    padding: 0 12px 20px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .anime-scroll {
+    gap: 8px;
+    margin: 0 -12px;
+    padding: 0 12px 8px;
+  }
+
+  .anime-card {
+    width: 100px;
+  }
+
+  .anime-card-title {
+    font-size: 12px;
+  }
+
+  .explore-tabs {
+    gap: 6px;
+  }
+
+  .explore-tab {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .explore-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 8px;
+    padding: 0 12px;
+  }
+
+  .explore-title {
+    font-size: 24px;
+    padding: 16px 12px 0;
+  }
+
+  .detail-back {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .detail-container {
+    padding: 0 12px 40px;
+  }
+
+  .detail-header {
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+
+  .detail-title {
+    font-size: 20px;
+  }
+
+  .detail-meta {
+    font-size: 12px;
+  }
+
+  .detail-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  .detail-section {
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+  }
+
+  .detail-section-title {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .detail-synopsis {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .episode-list {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 6px;
+  }
+
+  .episode-item {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .comment-form-wrapper {
+    flex-direction: column;
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .comment-item {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .comment-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .comment-user-avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .comment-text {
+    font-size: 13px;
+  }
+
+  .watch-header {
+    gap: 8px;
+    padding: 12px 0;
+  }
+
+  .watch-title {
+    font-size: 16px;
+  }
+
+  .watch-container {
+    padding: 12px;
+  }
+
+  .watch-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .watch-section {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .watch-section h3 {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .server-list {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 8px;
+  }
+
+  .server-item {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .episode-quick-list {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 6px;
+  }
+
+  .ep-quick-item {
+    padding: 6px;
+    font-size: 11px;
+  }
+
+  .bottom-nav {
+    height: 70px;
+  }
+
+  .nav-item {
+    font-size: 10px;
+  }
+
+  .nav-item svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .modal-content {
+    max-width: 95vw;
+    border-radius: 16px;
+  }
+
+  .modal-header {
+    padding: 16px;
+  }
+
+  .modal-header h3 {
+    font-size: 18px;
+  }
+
+  .modal-body {
+    padding: 16px;
+  }
+
+  .genre-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 8px;
+  }
+
+  .form-group {
+    margin-bottom: 12px;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .form-actions {
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .profile-avatar-section {
+    padding: 16px 0;
+  }
+
+  .profile-avatar-large {
+    width: 100px;
+    height: 100px;
+  }
+
+  .section-header {
+    padding: 12px 0 12px;
+    margin-bottom: 8px;
+  }
+
+  .see-all {
+    font-size: 12px;
+  }
+
+  .pagination {
+    padding: 16px 12px;
+    gap: 6px;
+  }
+
+  .pagination-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .pagination-info {
+    font-size: 12px;
+  }
+}
+
+/* ===== EXTRA SMALL (320px) ===== */
+@media (max-width: 360px) {
+  .nav-logo-text {
+    display: none;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .hero {
+    margin: 8px;
+    height: 200px;
+  }
+
+  .hero-title {
+    font-size: 16px;
+  }
+
+  .anime-card {
+    width: 90px;
+  }
+
+  .explore-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 6px;
+  }
+
+  .detail-header {
+    grid-template-columns: 70px 1fr;
+    gap: 10px;
+  }
+
+  .episode-list {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 4px;
+  }
+
+  .episode-item {
+    padding: 4px;
+    font-size: 11px;
+  }
+
+  .server-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .genre-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+
+  .comment-form-wrapper {
+    padding: 8px;
+  }
+
+  .btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .modal-header {
+    padding: 12px;
+  }
+
+  .modal-header h3 {
+    font-size: 16px;
+  }
+
+  .modal-body {
+    padding: 12px;
+  }
+}
+
+/* ===== LANDSCAPE FIXES ===== */
+@media (max-height: 600px) {
+  .hero {
+    height: 200px;
+  }
+
+  .hero-title {
+    font-size: 16px;
+  }
+
+  .detail-section {
+    padding: 16px;
+  }
+
+  .video-container {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ===== PORTRAIT ADJUSTMENTS ===== */
+@media (orientation: portrait) {
+  .detail-header {
+    grid-template-columns: 100px 1fr;
+  }
+}
+
+/* ===== LANDSCAPE ADJUSTMENTS ===== */
+@media (orientation: landscape) and (max-height: 500px) {
+  .navbar {
+    height: 48px;
+  }
+
+  .main-content {
+    margin-top: 48px;
+    margin-bottom: 60px;
+  }
+
+  .hero {
+    height: 180px;
+  }
+
+  .section {
+    padding: 0 16px 16px;
+  }
+
+  .bottom-nav {
+    height: 60px;
+  }
+}
+
+/* ===== DARK MODE OPTIMIZATIONS ===== */
+@media (prefers-color-scheme: dark) {
+  [data-theme="light"] {
+    --bg: #0A0F1E;
+    --bg2: #111827;
+    --bg3: #1F2937;
+    --surface: #1E293B;
+    --surface2: #334155;
+    --surface3: #475569;
+    --text: #F1F5F9;
+    --text2: #CBD5E1;
+    --text3: #64748B;
+  }
+}
+
+/* ===== PRINT ===== */
+@media print {
+  .navbar,
+  .bottom-nav,
+  .detail-buttons,
+  .btn,
+  #toast,
+  .modal {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .detail-section {
+    page-break-inside: avoid;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .nav-container {
+    padding: 0 40px;
+  }
+
+  .detail-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 40px 40px;
+  }
+
+  .explore-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  .anime-card {
+    width: 160px;
+  }
+}
