@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Nimestream — Streaming Anime Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-theme="light">
+
+<!-- LOADER -->
+<div id="loader" class="loader">
+  <div class="loader-logo">NIMESTREAM</div>
+  <div class="loader-subtitle">Loading...</div>
+  <div class="loader-spinner"></div>
+</div>
+
+<!-- HEADER/NAV -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-brand" onclick="goPage('home')">
+      <span class="nav-logo-icon">▶</span>
+      <span class="nav-logo-text">NIMESTREAM</span>
+    </div>
+    
+    <div class="nav-search-wrap">
+      <input type="text" id="navSearchInput" class="nav-search-input" placeholder="Cari anime..." />
+      <svg class="nav-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+    </div>
+
+    <div class="nav-actions">
+      <button class="nav-btn nav-theme-btn" id="themeToggle" title="Toggle theme">
+        <svg id="sunIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg id="moonIcon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      
+      <div class="nav-user-section">
+        <img id="navAvatar" class="nav-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23e0e0e0'/%3E%3Ccircle cx='12' cy='8' r='3' fill='%23999'/%3E%3Cpath d='M12 14c-5 0-7 2-7 4v3h14v-3c0-2-2-4-7-4z' fill='%23999'/%3E%3C/svg%3E" alt="Avatar">
+        <div id="userDropdown" class="user-dropdown" style="display:none">
+          <div class="dropdown-item" onclick="openProfileModal()">👤 Profil Saya</div>
+          <div class="dropdown-item" onclick="logout()">🚪 Logout</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+  <!-- HOME PAGE -->
+  <div id="homePage" class="page active">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-slides" id="heroSlides">
+        <!-- Slides will be inserted here -->
+      </div>
+      <div class="hero-controls">
+        <button class="hero-btn hero-btn-prev" id="heroPrev">‹</button>
+        <button class="hero-btn hero-btn-next" id="heroNext">›</button>
+      </div>
+      <div class="hero-dots" id="heroDots"></div>
+    </section>
+
+    <!-- Trending Section -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="section-icon">🔥</span>
+          <span>Trending Sekarang</span>
+        </div>
+        <span class="see-all" onclick="goPage('explore', 'trending')">Lihat Semua →</span>
+      </div>
+      <div class="anime-scroll" id="trendingScroll">
+        <!-- Will be filled by JS -->
+      </div>
+    </section>
+
+    <!-- Recent Section -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="section-icon">🆕</span>
+          <span>Episode Terbaru</span>
+        </div>
+        <span class="see-all" onclick="goPage('explore', 'recent')">Lihat Semua →</span>
+      </div>
+      <div class="anime-scroll" id="recentScroll">
+        <!-- Will be filled by JS -->
+      </div>
+    </section>
+
+    <!-- Upcoming Section -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="section-icon">⏰</span>
+          <span>Akan Datang</span>
+        </div>
+        <span class="see-all" onclick="goPage('explore', 'upcoming')">Lihat Semua →</span>
+      </div>
+      <div class="anime-scroll" id="upcomingScroll">
+        <!-- Will be filled by JS -->
+      </div>
+    </section>
+  </div>
+
+  <!-- SEARCH/EXPLORE PAGE -->
+  <div id="explorePage" class="page">
+    <div class="explore-header">
+      <div class="explore-title" id="exploreTitle">Jelajahi</div>
+      <div class="explore-tabs" id="exploreTabs">
+        <button class="explore-tab active" data-filter="all" onclick="filterExplore('all')">Semua</button>
+        <button class="explore-tab" data-filter="ongoing" onclick="filterExplore('ongoing')">Ongoing</button>
+        <button class="explore-tab" data-filter="completed" onclick="filterExplore('completed')">Selesai</button>
+        <button class="explore-tab" data-filter="movies" onclick="filterExplore('movies')">Film</button>
+        <button class="explore-tab" data-filter="genres" onclick="showGenres()">Genre</button>
+      </div>
+    </div>
+
+    <!-- Genre Modal -->
+    <div id="genreModal" class="modal" style="display:none">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Pilih Genre</h3>
+          <button class="modal-close" onclick="document.getElementById('genreModal').style.display='none'">&times;</button>
+        </div>
+        <div class="genre-grid" id="genreGrid">
+          <!-- Genres will be loaded here -->
+        </div>
+      </div>
+    </div>
+
+    <div class="explore-grid" id="exploreGrid">
+      <!-- Will be filled by JS -->
+    </div>
+
+    <div class="pagination" id="explorePagination">
+      <!-- Pagination buttons -->
+    </div>
+  </div>
+
+  <!-- DETAIL PAGE -->
+  <div id="detailPage" class="page">
+    <div class="detail-back" onclick="goPage('home')">← Kembali</div>
+    
+    <div class="detail-container">
+      <div class="detail-header">
+        <img id="detailPoster" class="detail-poster" src="" alt="Poster">
+        <div class="detail-info">
+          <div class="detail-rating" id="detailRating">N/A</div>
+          <h1 id="detailTitle" class="detail-title"></h1>
+          <p id="detailMeta" class="detail-meta"></p>
+          <div class="detail-badges" id="detailBadges"></div>
+          <div class="detail-buttons">
+            <button class="btn btn-primary" onclick="startWatching()">▶ Mulai Menonton</button>
+            <button class="btn btn-secondary" id="favBtn" onclick="toggleFavorite()">♥ Tambahkan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 class="detail-section-title">📖 Sinopsis</h3>
+        <p id="detailSynopsis" class="detail-synopsis"></p>
+      </div>
+
+      <div class="detail-section">
+        <h3 class="detail-section-title">📺 Daftar Episode</h3>
+        <div class="episode-controls">
+          <button class="ep-nav-btn" id="epPrevBtn" onclick="episodePrevPage()" style="display:none">← Sebelumnya</button>
+          <span id="epPageInfo"></span>
+          <button class="ep-nav-btn" id="epNextBtn" onclick="episodeNextPage()" style="display:none">Selanjutnya →</button>
+        </div>
+        <div class="episode-list" id="episodeList">
+          <!-- Episodes will be loaded here -->
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 class="detail-section-title">💬 Komentar</h3>
+        <div class="comments-container" id="commentsContainer">
+          <!-- Comments will be loaded here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WATCH PAGE -->
+  <div id="watchPage" class="page">
+    <div class="watch-container">
+      <div class="watch-header">
+        <button class="watch-back" onclick="goPage('detail')">← Kembali</button>
+        <div class="watch-title" id="watchTitle">Memuat...</div>
+      </div>
+
+      <div class="video-container" id="videoContainer">
+        <div class="video-placeholder">
+          <div style="font-size:48px">▶️</div>
+          <p>Pilih server untuk mulai menonton</p>
+        </div>
+      </div>
+
+      <div class="watch-controls">
+        <div class="watch-buttons">
+          <button class="btn btn-secondary" id="watchPrevBtn" onclick="watchPrevEpisode()" disabled>← Ep Sebelumnya</button>
+          <button class="btn btn-secondary" id="watchNextBtn" onclick="watchNextEpisode()" disabled>Ep Selanjutnya →</button>
+        </div>
+      </div>
+
+      <div class="watch-section">
+        <h3>🖥️ Pilih Server</h3>
+        <div class="server-list" id="serverList">
+          <!-- Servers will be loaded here -->
+        </div>
+      </div>
+
+      <div class="watch-section">
+        <h3>📋 Episode Lainnya</h3>
+        <div class="episode-quick-list" id="episodeQuickList">
+          <!-- Quick episode list -->
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- BOTTOM NAVIGATION -->
+<nav class="bottom-nav">
+  <div class="nav-item active" onclick="goPage('home')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+    </svg>
+    <span>Beranda</span>
+  </div>
+  <div class="nav-item" onclick="goPage('explore')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"></circle>
+      <path d="m21 21-4.35-4.35"></path>
+    </svg>
+    <span>Cari</span>
+  </div>
+  <div class="nav-item" onclick="goPage('favorites')">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+    </svg>
+    <span>Favorit</span>
+  </div>
+  <div class="nav-item" onclick="goPage('profile')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+      <circle cx="12" cy="7" r="4"></circle>
+    </svg>
+    <span>Profil</span>
+  </div>
+</nav>
+
+<!-- TOAST NOTIFICATION -->
+<div id="toast" class="toast"></div>
+
+<!-- PROFILE MODAL -->
+<div id="profileModal" class="modal" style="display:none">
+  <div class="modal-content modal-lg">
+    <div class="modal-header">
+      <h3>Edit Profil</h3>
+      <button class="modal-close" onclick="closeProfileModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="profile-avatar-section">
+        <img id="profileAvatarPreview" class="profile-avatar-large" src="" alt="Avatar">
+        <div class="profile-avatar-upload">
+          <input type="file" id="avatarInput" accept="image/*" onchange="uploadAvatar(event)">
+          <label for="avatarInput" class="btn btn-secondary">📸 Ganti Avatar</label>
+        </div>
+      </div>
+      <form id="profileForm">
+        <div class="form-group">
+          <label>Nama Pengguna</label>
+          <input type="text" id="usernameInput" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="emailInput" class="form-input" required>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeProfileModal()">Batal</button>
+          <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- COMMENT MODAL -->
+<div id="commentModal" class="modal" style="display:none">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Tambah Komentar</h3>
+      <button class="modal-close" onclick="closeCommentModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="comment-form">
+        <img id="commentUserAvatar" class="comment-user-avatar" src="" alt="">
+        <textarea id="commentText" class="form-textarea" placeholder="Tulis komentar Anda..." maxlength="500"></textarea>
+        <div class="form-actions">
+          <button class="btn btn-secondary" onclick="closeCommentModal()">Batal</button>
+          <button class="btn btn-primary" onclick="submitComment()">Kirim</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js"></script>
+
+<!-- Scripts -->
+<script src="js/config.js"></script>
+<script src="js/firebase.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+            </html>
+          
