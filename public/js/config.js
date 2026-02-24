@@ -1,12 +1,12 @@
 // ===== FIREBASE CONFIG =====
 // Ganti dengan konfigurasi Firebase Anda sendiri
 const firebaseConfig = {
-  apiKey: "AIzaSyDxxxxxxxxxxxxxxxxxxxxxxxx",
-  authDomain: "nimestream-xxxxx.firebaseapp.com",
-  projectId: "nimestream-xxxxx",
-  storageBucket: "nimestream-xxxxx.appspot.com",
-  messagingSenderId: "xxxxxxxxxx",
-  appId: "1:xxxxxxxxxx:web:xxxxxxxxxx"
+  apiKey: "AIzaSyBJjiT0vtiLW9UH39NT0qZsXEF4kjhwWG0",
+  authDomain: "kanaverse-b7d4e.firebaseapp.com",
+  projectId: "kanaverse-b7d4e",
+  storageBucket: "kanaverse-b7d4e.firebasestorage.app",
+  messagingSenderId: "90888486704",
+  appId: "1:90888486704:web:782a044df12309a04252f5"
 };
 
 // Inisialisasi Firebase
